@@ -10,3 +10,11 @@ s = Sistema()
 d = {}
 
 d = traerArchivo("datos.json")
+
+listaAviones = generarListaAviones(d)
+
+
+for item in listaAviones:
+    print(item.modelo)
+    print(item.limPasajeros)
+    print(item.limTripulacion)

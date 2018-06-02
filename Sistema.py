@@ -24,3 +24,6 @@ class Sistema(object):
 
     def addAvion(self, avion):
         self.listaAviones.append(avion)
+
+    def descerializar(self, dict):
+        pass #seguir
