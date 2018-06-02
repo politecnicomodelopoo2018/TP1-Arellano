@@ -18,6 +18,11 @@ class Persona(object):  # Definición de Persona
     def setDni(self, dni):
         self.dni = dni
 
+    # Otros Metodos
+    def descerializar(self, dict):
+        self.nombre = dict["nombre"]
+        self.apellido = dict["apellido"]
+        self.dni = dict["dni"]
 
 class Tripulante(Persona):  # Definicion de Tripulante
     def __init__(self):
@@ -48,7 +53,11 @@ class ServicioAbordo(Tripulante):   # Definicion de ServicioAbordo
 
 class Pasajero(Persona):    # Definicion de Pasajero
     vip = None
+    necesidadEspecial = None
 
     # Sets y Adds
     def setVip(self, vip):
         self.vip = vip
+
+    def setNecesidadEspecial(self, necesidadEspecial):
+        self.necesidadEspecial = necesidadEspecial
