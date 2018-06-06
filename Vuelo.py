@@ -53,7 +53,9 @@ class Vuelo(object):    # Definicion de Vuelo
             for meti in listaPersonas:
                 if type(meti) is Pasajero and item == meti.dni:
                     self.listaPasajeros.append(meti)
-                elif type(meti) is Piloto or type(meti) is Servicio and item == meti.dni:
+        for item in dict["tripulacion"]:
+            for meti in listaPersonas:
+                if ((type(meti) is Piloto) or (type(meti) is Servicio)) and item == meti.dni:
                     self.listaTripulacion.append(meti)
 
 

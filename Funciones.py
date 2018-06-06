@@ -38,12 +38,28 @@ def generarListaVuelos(dict, listaPersonas, listaAviones):
         listaVuelos.append(vuelo)
     return listaVuelos
 
-def datosAvion(avion):
+def printDatosAvion(avion):
     print(avion.modelo, "|", avion.limPasajeros, "|", avion.limTripulacion)
 
-def datosPersona(persona):
+def printDatosPersona(persona):
     if type(persona) is Pasajero:
         print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni, "|", persona.vip, "|",
               persona.necesidadEspecial)
     elif type(persona) is Servicio:
         print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni)
+        for item in persona.listaAviones:
+            print("Avion: ", item.modelo)
+        for item in persona.listaIdiomas:
+            print("Idiomas:", item)
+    elif type(persona) is Piloto:
+        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni)
+        for item in persona.listaAviones:
+            print("Avion: ", item.modelo)
+
+def printDatosVuelo(vuelo):
+    print(vuelo.avion.modelo, "|", vuelo.origen, "|", vuelo.destino, "|", vuelo.fecha, "|", vuelo.hora)
+    for item in vuelo.listaPasajeros:
+        print("Pasajeros: ", item.dni)
+    for item in vuelo.listaTripulacion:
+        print("Tripulacion: ", item.dni)
+
