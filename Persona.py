@@ -81,4 +81,5 @@ class Pasajero(Persona):    # Definicion de Pasajero
     def descerializar(self, dict, listaAviones):
         super().descerializar(dict, listaAviones)
         self.vip = dict["vip"]
-        # self.necesidadEspecial = dict["solicitudesEspeciales"]
+        if "solicitudesEspeciales" in dict:
+            self.necesidadEspecial = dict["solicitudesEspeciales"]

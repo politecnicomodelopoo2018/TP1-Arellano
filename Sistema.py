@@ -2,6 +2,15 @@ from Persona import *
 
 # Definicion de Sistema
 class Sistema(object):
+
+    __instance = None
+    nombre = None
+
+    def __new__(cls):
+        if Sistema.__instance is None:
+            Sistema.__instance = object.__new__(cls)
+        return Sistema.__instance
+
     def __init__(self):
         self.listaPersonas = []
         self.listaVuelos = []
@@ -47,17 +56,15 @@ class Sistema(object):
 
     def validarTripulantes(self, vuelo):
         for item in vuelo.listaTripulacion:
-            for meti in self.buscarPersonaEnLista(item, self.listaPersonas).listaAviones:
+            for meti in item.listaAviones:
                 if meti == vuelo.avion:
                     return True
         return False
 
     def pasajerosPorVuelo(self, vuelo):
         pasajerosEnVuelo = []
-        for item in self.listaVuelos:
-            if item == vuelo:
-                for meti in item.listaPasajeros:
-                    pasajerosEnVuelo.append(self.buscarPersonaEnLista(meti, self.listaPersonas))
+        for meti in vuelo.listaPasajeros:
+            pasajerosEnVuelo.append(meti)
         return pasajerosEnVuelo
 
     def pasajeroJoven(self, listaPasajeros):
@@ -70,9 +77,10 @@ class Sistema(object):
 
     def VoEporVuelo(self, vuelo):
         listaGente = []
-        for item in self.listaPersonas:
-            if self.buscarPersonaEnLista(item, self.listaPersonas) :
-                pass
+        for item in vuelo.listaPersonas:
+            if item.vip == 1 or item.necesidadesEspeciales is not None:
+                listaGente.append(item)
+        return listaGente
 
 
 

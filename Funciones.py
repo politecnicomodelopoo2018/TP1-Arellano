@@ -37,3 +37,13 @@ def generarListaVuelos(dict, listaPersonas, listaAviones):
         vuelo.descerializar(item, listaPersonas, listaAviones)
         listaVuelos.append(vuelo)
     return listaVuelos
+
+def datosAvion(avion):
+    print(avion.modelo, "|", avion.limPasajeros, "|", avion.limTripulacion)
+
+def datosPersona(persona):
+    if type(persona) is Pasajero:
+        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni, "|", persona.vip, "|",
+              persona.necesidadEspecial)
+    elif type(persona) is Servicio:
+        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni)
