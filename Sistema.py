@@ -77,8 +77,8 @@ class Sistema(object):
 
     def VoEporVuelo(self, vuelo):
         listaGente = []
-        for item in vuelo.listaPersonas:
-            if item.vip == 1 or item.necesidadesEspeciales is not None:
+        for item in vuelo.listaPasajeros:
+            if item.vip == 1 or item.necesidadEspecial is not None:
                 listaGente.append(item)
         return listaGente
 

@@ -32,12 +32,12 @@ for item in listaVuelos:
 print("VALIDOS por Cant")
 for item in listaVuelos:
     if s.validarCanTripulacion(item):
-        print(item.avion, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.fecha)
+        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
 
 print("INVALIDOS por Cant")
 for item in listaVuelos:
     if s.validarCanTripulacion(item) != True:
-        print(item.avion, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.fecha)
+        print(item.avion, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
 
 
 for item in listaVuelos:
@@ -48,6 +48,11 @@ for item in listaVuelos:
             print(meti.nombre, "|", meti.apellido, "|*")
         else:
             print(meti.nombre, "|", meti.apellido)
+
+for item in s.listaVuelos:
+    print("Vuelo", item.avion.modelo)
+    for item in s.VoEporVuelo(item):
+        print(item.dni)
 
 
 
