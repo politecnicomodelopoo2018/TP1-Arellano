@@ -58,4 +58,14 @@ for item in listaVuelos:
 print("edad: ", listaPersonas[0].getEdad())
 
 
-if
+
+
+print("VALIDOS por Cant")
+for item in listaVuelos:
+    if s.validarCanTripulacion(item):
+        print(item.avion, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.fecha)
+
+print("INVALIDOS por Cant")
+for item in listaVuelos:
+    if s.validarCanTripulacion(item) != True:
+        print(item.avion, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.fecha)

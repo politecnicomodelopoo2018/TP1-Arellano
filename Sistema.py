@@ -27,9 +27,9 @@ class Sistema(object):
 
     # Otros Metodos
 
-    def buscarEnLista(self, algo, lista):
-        for item in lista:
-            if algo == item:
+    def buscarPersonaEnLista(self, persona, listaPersonas):
+        for item in listaPersonas:
+            if persona == item.dni:
                 return item
 
     def cargar(self, listaPersonas, listaVuelos, listaAviones):
@@ -57,22 +57,17 @@ class Sistema(object):
         for item in self.listaAviones:
             if vuelo.avion == item.modelo:
                if len(vuelo.listaTripulacion) < item.limTripulacion:
-                   return 1
-        return 0
+                   return False
+        return True
 
     def validarTripulantes(self, vuelo):
         for item in vuelo.listaTripulacion:
-            for meti in self.buscarEnLista(item, self.listaPersonas):
-                for temi in meti.listaAviones:
-                    if temi == vuelo.avion:
-                        return 1
-        return 0
+            for meti in self.buscarPersonaEnLista(item, self.listaPersonas).listaAviones:
+                if meti == vuelo.avion:
+                    return True
+        return False
+
+
 
         for item in vuelo.listaTripulacion:
-            tripulante = self.buscarEnLista(item, self.listaTripulacion)
-
-
-
-
-
-
+            tripulante = self.buscarPersonaEnLista(item, self.listaTripulacion)
