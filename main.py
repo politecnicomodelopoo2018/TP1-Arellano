@@ -12,8 +12,8 @@ d = {}
 d = traerArchivo("datos.json")
 
 listaAviones = generarListaAviones(d)
-listaPersonas = generarListaPersonas(d)
-listaVuelos = generarListaVuelos(d)
+listaPersonas = generarListaPersonas(d, listaAviones)
+listaVuelos = generarListaVuelos(d, listaPersonas, listaAviones)
 s.cargar(listaPersonas, listaVuelos, listaAviones)
 
 print("\n", "AVIONES")
@@ -54,12 +54,6 @@ for item in listaVuelos:
     for meti in item.listaTripulacion:
         print(meti)
 
-
-print("edad: ", listaPersonas[0].getEdad())
-
-
-
-
 print("VALIDOS por Cant")
 for item in listaVuelos:
     if s.validarCanTripulacion(item):
@@ -69,3 +63,15 @@ print("INVALIDOS por Cant")
 for item in listaVuelos:
     if s.validarCanTripulacion(item) != True:
         print(item.avion, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.fecha)
+
+
+for item in listaVuelos:
+    esto = s.pasajerosPorVuelo(item)
+    print("Vuelo de ", item.avion)
+    pasajeroJoven = esto[0]
+    for meti in esto:
+        if meti == pasajeroJoven:
+            print(meti.nombre, "|", meti.apellido, "|*")
+        else:
+            print(meti.nombre, "|", meti.apellido)
+

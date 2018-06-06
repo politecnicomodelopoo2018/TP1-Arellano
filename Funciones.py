@@ -18,22 +18,22 @@ def generarListaAviones(dict):
         listaAviones.append(avion)
     return listaAviones
 
-def generarListaPersonas(dict):
+def generarListaPersonas(dict, listaAviones):
     listaPersonas = []
 
     listaDiccionarios = dict["Personas"]
     for item in listaDiccionarios:
         persona = eval(item["tipo"])()
-        persona.descerializar(item)
+        persona.descerializar(item, listaAviones)
         listaPersonas.append(persona)
     return listaPersonas
 
-def generarListaVuelos(dict):
+def generarListaVuelos(dict, listaPersonas, listaAviones):
     listaVuelos = []
 
     listaDiccionarios = dict["Vuelos"]
     for item in listaDiccionarios:
         vuelo = Vuelo()
-        vuelo.descerializar(item)
+        vuelo.descerializar(item, listaPersonas, listaAviones)
         listaVuelos.append(vuelo)
     return listaVuelos

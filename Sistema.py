@@ -1,3 +1,4 @@
+from Persona import *
 
 # Definicion de Sistema
 class Sistema(object):
@@ -27,31 +28,15 @@ class Sistema(object):
 
     # Otros Metodos
 
-    def buscarPersonaEnLista(self, persona, listaPersonas):
-        for item in listaPersonas:
-            if persona == item.dni:
-                return item
-
     def cargar(self, listaPersonas, listaVuelos, listaAviones):
         self.listaVuelos = listaVuelos
         self.listaAviones = listaAviones
         self.listaPersonas = listaPersonas
 
-    def pasajerosPorVuelo(self, vuelo):
-        pasajerosEnVuelo = []
-        for item in self.listaVuelos:
-            if item == vuelo:
-                for meti in item.listaPasajeros:
-                    pasajerosEnVuelo.append(meti)
-        return pasajerosEnVuelo
-
-    def pasajeroJoven(self, listaPasajeros):
-        edad = listaPasajeros[0].getEdad
-        joven = listaPasajeros[0]
-        for item in listaPasajeros:
-            if item.getEdad < edad:
-                joven = item
-        return joven
+    def buscarPersonaEnLista(self, persona, listaPersonas):
+        for item in listaPersonas:
+            if persona == item.dni:
+                return item
 
     def validarCanTripulacion(self, vuelo):
         for item in self.listaAviones:
@@ -67,7 +52,27 @@ class Sistema(object):
                     return True
         return False
 
+    def pasajerosPorVuelo(self, vuelo):
+        pasajerosEnVuelo = []
+        for item in self.listaVuelos:
+            if item == vuelo:
+                for meti in item.listaPasajeros:
+                    pasajerosEnVuelo.append(self.buscarPersonaEnLista(meti, self.listaPersonas))
+        return pasajerosEnVuelo
+
+    def pasajeroJoven(self, listaPasajeros):
+        fechaMayor = listaPasajeros[0].fechaNac
+        joven = listaPasajeros[0]
+        for item in listaPasajeros:
+            if item.fechaNac > fechaMayor:
+                joven = item
+        return joven
+
+    def VoEporVuelo(self, vuelo):
+        listaGente = []
+        for item in self.listaPersonas:
+            if self.buscarPersonaEnLista(item, self.listaPersonas) :
+                pass
 
 
-        for item in vuelo.listaTripulacion:
-            tripulante = self.buscarPersonaEnLista(item, self.listaTripulacion)
+

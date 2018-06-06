@@ -20,14 +20,11 @@ class Persona(object):  # Definición de Persona
         self.dni = dni
 
     # Otros Metodos
-    def descerializar(self, dict):
+    def descerializar(self, dict, listaAviones):
         self.nombre = dict["nombre"]
         self.apellido = dict["apellido"]
         self.dni = dict["dni"]
-        self.fechaNac = datetime.strptime(dict["fechaNacimiento"], "%Y-%m-%d")
-
-    def getEdad(self):
-        return datetime.now().year - self.fechaNac.year
+        self.fechaNac = datetime.strptime(dict["fechaNacimiento"], "%Y-%m-%d").date()
 
 class Tripulante(Persona):  # Definicion de Tripulante
     def __init__(self):
@@ -41,10 +38,12 @@ class Tripulante(Persona):  # Definicion de Tripulante
         self.listaAviones.append(avion)
 
     # Otros Metodos
-    def descerializar(self, dict):
-        super().descerializar(dict)
+    def descerializar(self, dict, listaAviones):
+        super().descerializar(dict, listaAviones)
         for item in dict["avionesHabilitados"]:
-            self.listaAviones.append(item)
+            for meti in listaAviones:
+                if item == meti.modelo:
+                    self.listaAviones.append(meti)
 
 class Piloto(Tripulante):   # Definicion de Piloto
     pass
@@ -62,8 +61,8 @@ class Servicio(Tripulante):   # Definicion de ServicioAbordo
         self.listaIdiomas.append(idioma)
 
     # Otros Metodos
-    def descerializar(self, dict):
-        super().descerializar(dict)
+    def descerializar(self, dict, listaAviones):
+        super().descerializar(dict, listaAviones)
         for item in dict["idiomas"]:
             self.listaIdiomas.append(item)
 
@@ -79,7 +78,7 @@ class Pasajero(Persona):    # Definicion de Pasajero
         self.necesidadEspecial = necesidadEspecial
 
     # Otros Metodos
-    def descerializar(self, dict):
-        super().descerializar(dict)
+    def descerializar(self, dict, listaAviones):
+        super().descerializar(dict, listaAviones)
         self.vip = dict["vip"]
         # self.necesidadEspecial = dict["solicitudesEspeciales"]
