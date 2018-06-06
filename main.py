@@ -13,12 +13,13 @@ d = traerArchivo("datos.json")
 
 listaAviones = generarListaAviones(d)
 listaPersonas = generarListaPersonas(d)
+listaVuelos = generarListaVuelos(d)
 
+print("\n", "AVIONES")
 for item in listaAviones:
-    print(item.modelo)
-    print(item.limPasajeros)
-    print(item.limTripulacion)
+    print(item.modelo, "|", item.limPasajeros, "|", item.limTripulacion)
 
+print("\n", "PERSONAS")
 print("SERVICIO")
 for item in listaPersonas:
     if type(item) == Servicio:
@@ -42,3 +43,12 @@ print("PASAJERO")
 for item in listaPersonas:
     if type(item) == Pasajero:
         print(item.nombre, "|", item.apellido, "|", item.dni, "|", item.fechaNac, "|", item.vip)
+
+
+print("\n", "VUELOS")
+for item in listaVuelos:
+    print(item.avion, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.fecha)
+    for meti in item.listaPasajeros:
+        print(meti)
+    for meti in item.listaTripulacion:
+        print(meti)
