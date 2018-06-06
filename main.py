@@ -14,6 +14,7 @@ d = traerArchivo("datos.json")
 listaAviones = generarListaAviones(d)
 listaPersonas = generarListaPersonas(d)
 listaVuelos = generarListaVuelos(d)
+s.cargar(listaPersonas, listaVuelos, listaAviones)
 
 print("\n", "AVIONES")
 for item in listaAviones:
@@ -52,3 +53,9 @@ for item in listaVuelos:
         print(meti)
     for meti in item.listaTripulacion:
         print(meti)
+
+
+print("edad: ", listaPersonas[0].getEdad())
+
+
+if

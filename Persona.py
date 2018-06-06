@@ -26,6 +26,9 @@ class Persona(object):  # Definición de Persona
         self.dni = dict["dni"]
         self.fechaNac = datetime.strptime(dict["fechaNacimiento"], "%Y-%m-%d")
 
+    def getEdad(self):
+        return datetime.now().year - self.fechaNac.year
+
 class Tripulante(Persona):  # Definicion de Tripulante
     def __init__(self):
         self.listaAviones = []

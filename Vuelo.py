@@ -50,3 +50,5 @@ class Vuelo(object):    # Definicion de Vuelo
             self.listaPasajeros.append(item)
         for item in dict["tripulacion"]:
             self.listaTripulacion.append(item)
+
+
