@@ -1,5 +1,6 @@
 import json
 from Avion import *
+from Persona import *
 
 def traerArchivo(archivo):
     with open(archivo, "r") as f:
@@ -16,3 +17,12 @@ def generarListaAviones(dict):
         listaAviones.append(avion)
     return listaAviones
 
+def generarListaPersonas(dict):
+    listaPersonas = []
+
+    listaDiccionarios = dict["Personas"]
+    for item in listaDiccionarios:
+        persona = eval(item["tipo"])()
+        persona.descerializar(item)
+        listaPersonas.append(persona)
+    return listaPersonas

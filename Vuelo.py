@@ -1,3 +1,4 @@
+from datetime import *
 
 class Vuelo(object):    # Definicion de Vuelo
     avion = None
@@ -37,3 +38,15 @@ class Vuelo(object):    # Definicion de Vuelo
 
     def addTripulante(self, tripulante):
         self.listaTripulacion.append(tripulante)
+
+    # Otros Metodos
+    def descerializar(self, dict):
+        self.avion = dict["avion"] # Ver si meter Avion()
+        self.fecha = datetime.strptime(dict["fecha"], "%Y-%m-%d")
+        self.hora = dict["hora"]
+        self.destino = dict["destino"]
+        self.origen = dict["origen"]
+        for item in dict["pasajeros"]:
+            self.listaPasajeros.append(item)
+        for item in dict["tripulacion"]:
+            self.listaTripulacion.append(item)
