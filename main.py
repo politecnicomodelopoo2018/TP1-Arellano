@@ -20,10 +20,9 @@ print("\n", "AVIONES")
 for item in listaAviones:
     printDatosAvion(item)
 
-print("\n", "PERSONAS")
-print("SERVICIO")
+print("\n", "PASAJEROS")
 for item in listaPersonas:
-    printDatosPersona(item)
+    printDatosPersona(item, True, False, False)
 
 print("\n", "VUELOS")
 for item in listaVuelos:
@@ -66,6 +65,15 @@ for item in listaVuelos:
     if not item.validarTripulacion():
         print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
 
+print("VALIDOS por Un Dia - Un Vuelo")
+for item in listaPersonas:
+    if type(item) is Piloto:
+        if s.verificarDiasPiloto(item):
+            print(item.nombre, "|", item.apellido, "|", item.dni)
 
 
-
+print("INVALIDOS por Un Dia - Un Vuelo")
+for item in listaPersonas:
+    if type(item) is Piloto:
+        if not s.verificarDiasPiloto(item):
+            print(item.nombre, "|", item.apellido, "|", item.dni)
