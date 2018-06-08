@@ -31,13 +31,14 @@ for item in listaVuelos:
 
 print("\n", "Pasajeros Jovenes")
 for item in listaVuelos:
-    esto = s.pasajerosPorVuelo(item)
-    pasajeroJoven = esto[0]
-    for meti in esto:
+    print("Vuelo", item.avion.modelo)
+    pasajeroJoven = item.pasajeroJoven()
+    print("paasa: ", pasajeroJoven.dni)
+    for meti in item.listaPasajeros:
         if meti == pasajeroJoven:
-            print(meti.nombre, "|", meti.apellido, "|*")
+            print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac, "|*")
         else:
-            print(meti.nombre, "|", meti.apellido)
+            print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac)
 
 print("\n", "Pasajeros V/Ne")
 for item in s.listaVuelos:
@@ -58,11 +59,11 @@ for item in listaVuelos:
 
 print("VALIDOS por Aviones Permitidos")
 for item in listaVuelos:
-    if s.validarAvionTripulantes(item):
+    if item.validarTripulacion():
         print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
 print("INVALIDOS por Aviones Permitidos")
 for item in listaVuelos:
-    if not s.validarAvionTripulantes(item):
+    if not item.validarTripulacion():
         print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
 
 

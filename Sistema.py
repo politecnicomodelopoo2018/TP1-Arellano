@@ -42,30 +42,13 @@ class Sistema(object):
         self.listaAviones = listaAviones
         self.listaPersonas = listaPersonas
 
-    def buscarPersonaEnLista(self, persona, listaPersonas):
-        for item in listaPersonas:
-            if persona == item.dni:
-                return item
-
-    def validarAvionTripulantes(self, vuelo):
-        for item in vuelo.listaTripulacion:
-            if not vuelo.verificarTripulante(item):
-                return False
-        return True
-
     def pasajerosPorVuelo(self, vuelo):
         pasajerosEnVuelo = []
         for meti in vuelo.listaPasajeros:
             pasajerosEnVuelo.append(meti)
         return pasajerosEnVuelo
 
-    def pasajeroJoven(self, listaPasajeros):
-        fechaMayor = listaPasajeros[0].fechaNac
-        joven = listaPasajeros[0]
-        for item in listaPasajeros:
-            if item.fechaNac > fechaMayor:
-                joven = item
-        return joven
+
 
 
 

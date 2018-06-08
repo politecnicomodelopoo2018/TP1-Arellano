@@ -64,6 +64,12 @@ class Vuelo(object):    # Definicion de Vuelo
                 return True
         return False
 
+    def validarTripulacion(self):
+        for item in self.listaTripulacion:
+            if not self.verificarTripulante(item):
+                return False
+        return True
+
     def validarCanTripulacion(self):
         if len(self.listaTripulacion) < self.avion.limTripulacion:
             return False
@@ -75,6 +81,15 @@ class Vuelo(object):    # Definicion de Vuelo
             if item.vip == 1 or item.necesidadEspecial is not None:
                 listaGente.append(item)
         return listaGente
+
+    def pasajeroJoven(self):
+        joven = self.listaPasajeros[0]
+        for item in self.listaPasajeros:
+            if item.fechaNac > joven.fechaNac:
+                joven = item
+        return joven
+
+
 
 
 
