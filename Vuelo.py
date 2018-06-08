@@ -58,4 +58,23 @@ class Vuelo(object):    # Definicion de Vuelo
                 if ((type(meti) is Piloto) or (type(meti) is Servicio)) and item == meti.dni:
                     self.listaTripulacion.append(meti)
 
+    def verificarTripulante(self, tripulante):
+        for item in tripulante.listaAviones:
+            if item.modelo == self.avion.modelo:
+                return True
+        return False
+
+    def validarCanTripulacion(self):
+        if len(self.listaTripulacion) < self.avion.limTripulacion:
+            return False
+        return True
+
+    def listaVoNe(self):
+        listaGente = []
+        for item in self.listaPasajeros:
+            if item.vip == 1 or item.necesidadEspecial is not None:
+                listaGente.append(item)
+        return listaGente
+
+
 

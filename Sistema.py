@@ -47,19 +47,11 @@ class Sistema(object):
             if persona == item.dni:
                 return item
 
-    def validarCanTripulacion(self, vuelo):
-        for item in self.listaAviones:
-            if vuelo.avion == item.modelo:
-               if len(vuelo.listaTripulacion) < item.limTripulacion:
-                   return False
-        return True
-
-    def validarTripulantes(self, vuelo):
+    def validarAvionTripulantes(self, vuelo):
         for item in vuelo.listaTripulacion:
-            for meti in item.listaAviones:
-                if meti == vuelo.avion:
-                    return True
-        return False
+            if not vuelo.verificarTripulante(item):
+                return False
+        return True
 
     def pasajerosPorVuelo(self, vuelo):
         pasajerosEnVuelo = []
@@ -75,12 +67,7 @@ class Sistema(object):
                 joven = item
         return joven
 
-    def VoEporVuelo(self, vuelo):
-        listaGente = []
-        for item in vuelo.listaPasajeros:
-            if item.vip == 1 or item.necesidadEspecial is not None:
-                listaGente.append(item)
-        return listaGente
+
 
 
 
