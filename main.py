@@ -6,6 +6,7 @@ import json
 from datetime import *
 from Funciones import *
 
+
 s = Sistema()
 d = {}
 
