@@ -21,10 +21,10 @@ class Persona(object):  # Definición de Persona
 
     # Otros Metodos
     def descerializar(self, dict, listaAviones):
-        self.nombre = dict["nombre"]
-        self.apellido = dict["apellido"]
-        self.dni = dict["dni"]
-        self.fechaNac = datetime.strptime(dict["fechaNacimiento"], "%Y-%m-%d").date()
+        self.setNombre(dict["nombre"])
+        self.setApellido(dict["apellido"])
+        self.setDni(dict["dni"])
+        self.setFechaNac(datetime.strptime(dict["fechaNacimiento"], "%Y-%m-%d").date())
 
 class Tripulante(Persona):  # Definicion de Tripulante
     def __init__(self):
@@ -43,7 +43,7 @@ class Tripulante(Persona):  # Definicion de Tripulante
         for item in dict["avionesHabilitados"]:
             for meti in listaAviones:
                 if item == meti.modelo:
-                    self.listaAviones.append(meti)
+                    self.addAvion(meti)
 
 class Piloto(Tripulante):   # Definicion de Piloto
     pass
@@ -64,7 +64,7 @@ class Servicio(Tripulante):   # Definicion de ServicioAbordo
     def descerializar(self, dict, listaAviones):
         super().descerializar(dict, listaAviones)
         for item in dict["idiomas"]:
-            self.listaIdiomas.append(item)
+            self.addIdioma(item)
 
 class Pasajero(Persona):    # Definicion de Pasajero
     vip = None
@@ -82,4 +82,4 @@ class Pasajero(Persona):    # Definicion de Pasajero
         super().descerializar(dict, listaAviones)
         self.vip = dict["vip"]
         if "solicitudesEspeciales" in dict:
-            self.necesidadEspecial = dict["solicitudesEspeciales"]
+            self.setNecesidadEspecial(dict["solicitudesEspeciales"])

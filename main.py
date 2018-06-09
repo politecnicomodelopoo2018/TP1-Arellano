@@ -17,17 +17,9 @@ listaPersonas = generarListaPersonas(d, listaAviones)
 listaVuelos = generarListaVuelos(d, listaPersonas, listaAviones)
 s.cargar(listaPersonas, listaVuelos, listaAviones)
 
-print("\n", "AVIONES")
-for item in listaAviones:
-    printDatosAvion(item)
-
 print("\n", "PASAJEROS")
 for item in listaPersonas:
-    printDatosPersona(item, True, False, False)
-
-print("\n", "VUELOS")
-for item in listaVuelos:
-    printDatosVuelo(item)
+    printDatosPersona(item, True)
 
 print("\n", "Pasajeros Jovenes")
 for item in listaVuelos:
@@ -40,11 +32,7 @@ for item in listaVuelos:
         else:
             print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac)
 
-print("\n", "Pasajeros V/Ne")
-for item in s.listaVuelos:
-    print("Vuelo", item.avion.modelo)
-    for meti in item.listaVoNe():
-        print(meti.dni)
+
 
 print("\n", "VALIDANDO")
 print("VALIDOS por Cant")
@@ -72,9 +60,20 @@ for item in listaPersonas:
         if s.verificarDiasPiloto(item):
             print(item.nombre, "|", item.apellido, "|", item.dni)
 
-
 print("INVALIDOS por Un Dia - Un Vuelo")
 for item in listaPersonas:
     if type(item) is Piloto:
         if not s.verificarDiasPiloto(item):
             print(item.nombre, "|", item.apellido, "|", item.dni)
+
+print("\n", "Pasajeros V/Ne")
+for item in s.listaVuelos:
+    print("Vuelo", item.avion.modelo)
+    for meti in item.listaVoNe():
+        print(meti.dni)
+
+print("\n", "IDIOMAS POR VUELO")
+for item in s.listaVuelos:
+    print("Vuelo", item.avion.modelo)
+    for meti in item.idiomas():
+        print(meti)

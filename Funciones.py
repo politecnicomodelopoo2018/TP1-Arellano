@@ -41,7 +41,7 @@ def generarListaVuelos(dict, listaPersonas, listaAviones):
 def printDatosAvion(avion):
     print(avion.modelo, "|", avion.limPasajeros, "|", avion.limTripulacion)
 
-def printDatosPersona(persona, Pas, Pil, Ser):
+def printDatosPersona(persona, Pas = False, Pil = False, Ser = False):
     if type(persona) is Pasajero and Pas:
         print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni, "|", persona.vip, "|",
               persona.necesidadEspecial)

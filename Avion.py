@@ -16,6 +16,6 @@ class Avion(object):    # Definicion de Avion
 
     # Otros Metodos
     def descerializar(self, dict):
-            self.modelo = dict["codigoUnico"]
-            self.limPasajeros = dict["cantidadDePasajerosMaxima"]
-            self.limTripulacion = dict["cantidadDeTripulacionNecesaria"]
+            self.setModelo(dict["codigoUnico"])
+            self.setLimPasajeros(dict["cantidadDePasajerosMaxima"])
+            self.setLimTripulacion(dict["cantidadDeTripulacionNecesaria"])

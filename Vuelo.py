@@ -45,18 +45,18 @@ class Vuelo(object):    # Definicion de Vuelo
         for item in listaAviones:
             if dict["avion"] == item.modelo:
                 self.avion = item
-        self.fecha = datetime.strptime(dict["fecha"], "%Y-%m-%d")
-        self.hora = dict["hora"]
-        self.destino = dict["destino"]
-        self.origen = dict["origen"]
+        self.setFecha(datetime.strptime(dict["fecha"], "%Y-%m-%d"))
+        self.setHora(dict["hora"])
+        self.setDestino(dict["destino"])
+        self.setOrigen(dict["origen"])
         for item in dict["pasajeros"]:
             for meti in listaPersonas:
                 if type(meti) is Pasajero and item == meti.dni:
-                    self.listaPasajeros.append(meti)
+                    self.addPasajero(meti)
         for item in dict["tripulacion"]:
             for meti in listaPersonas:
                 if ((type(meti) is Piloto) or (type(meti) is Servicio)) and item == meti.dni:
-                    self.listaTripulacion.append(meti)
+                    self.addTripulante(meti)
 
     def verificarTripulante(self, tripulante):
         for item in tripulante.listaAviones:
@@ -89,6 +89,14 @@ class Vuelo(object):    # Definicion de Vuelo
                 joven = item
         return joven
 
+    def idiomas(self):
+        lista = []
+        for item in self.listaTripulacion:
+            if type(item) is Servicio:
+                for item in item.listaIdiomas:
+                    if item not in lista:
+                        lista.append(item)
+        return lista
 
 
 
