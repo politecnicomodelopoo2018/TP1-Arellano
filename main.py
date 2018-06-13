@@ -21,17 +21,15 @@ print("\n", "PASAJEROS")
 for item in listaPersonas:
     printDatosPersona(item, True)
 
-print("\n", "Pasajeros Jovenes")
+print("\n", "Pasajeros Jovenes y Lista por Vuelo")
 for item in listaVuelos:
     print("Vuelo", item.avion.modelo)
     pasajeroJoven = item.pasajeroJoven()
-    print("paasa: ", pasajeroJoven.dni)
     for meti in item.listaPasajeros:
         if meti == pasajeroJoven:
             print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac, "|*")
         else:
             print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac)
-
 
 
 print("\n", "VALIDANDO")
@@ -45,7 +43,7 @@ for item in listaVuelos:
     if not item.validarCanTripulacion():
         print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
 
-print("VALIDOS por Aviones Permitidos")
+print("\n", "VALIDOS por Aviones Permitidos")
 for item in listaVuelos:
     if item.validarTripulacion():
         print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
@@ -54,7 +52,7 @@ for item in listaVuelos:
     if not item.validarTripulacion():
         print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
 
-print("VALIDOS por Un Dia - Un Vuelo")
+print("\n", "VALIDOS por Un Dia - Un Vuelo")
 for item in listaPersonas:
     if type(item) is Piloto:
         if s.verificarDiasPiloto(item):
