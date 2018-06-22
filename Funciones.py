@@ -43,16 +43,16 @@ def printDatosAvion(avion):
 
 def printDatosPersona(persona, Pas = False, Pil = False, Ser = False):
     if type(persona) is Pasajero and Pas:
-        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni, "|", persona.vip, "|",
+        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac.date(), "|", persona.dni, "|", persona.vip, "|",
               persona.necesidadEspecial)
     elif type(persona) is Servicio and Ser:
-        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni)
+        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac.date(), "|", persona.dni)
         for item in persona.listaAviones:
             print("Avion: ", item.modelo)
         for item in persona.listaIdiomas:
             print("Idiomas:", item)
     elif type(persona) is Piloto and Pil:
-        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac, "|", persona.dni)
+        print(persona.nombre, "|", persona.apellido, "|", persona.fechaNac.date(), "|", persona.dni)
         for item in persona.listaAviones:
             print("Avion: ", item.modelo)
 

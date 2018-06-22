@@ -1,4 +1,4 @@
-from datetime import *
+import datetime
 from Persona import *
 
 class Vuelo(object):    # Definicion de Vuelo
@@ -45,7 +45,7 @@ class Vuelo(object):    # Definicion de Vuelo
         for item in listaAviones:
             if dict["avion"] == item.modelo:
                 self.avion = item
-        self.setFecha(datetime.strptime(dict["fecha"], "%Y-%m-%d"))
+        self.setFecha(datetime.datetime.strptime(dict["fecha"], "%Y-%m-%d"))
         self.setHora(dict["hora"])
         self.setDestino(dict["destino"])
         self.setOrigen(dict["origen"])

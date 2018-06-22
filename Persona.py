@@ -1,4 +1,4 @@
-from datetime import *
+import datetime
 
 class Persona(object):  # Definición de Persona
     nombre = None
@@ -24,7 +24,7 @@ class Persona(object):  # Definición de Persona
         self.setNombre(dict["nombre"])
         self.setApellido(dict["apellido"])
         self.setDni(dict["dni"])
-        self.setFechaNac(datetime.strptime(dict["fechaNacimiento"], "%Y-%m-%d").date())
+        self.setFechaNac(datetime.datetime.strptime(dict["fechaNacimiento"], "%Y-%m-%d"))
 
 class Tripulante(Persona):  # Definicion de Tripulante
     def __init__(self):

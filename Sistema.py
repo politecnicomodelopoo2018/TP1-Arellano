@@ -42,18 +42,18 @@ class Sistema(object):
         self.listaAviones = listaAviones
         self.listaPersonas = listaPersonas
 
-    def FechasDeVuelosHechosPorPiloto(self, piloto):
+    def FechasDeVuelosHechosPorTripulante(self, tripulante):
         listaFechasVuelos = []
         for item in self.listaVuelos:
             for meti in item.listaTripulacion:
-                if meti == piloto:
+                if meti == tripulante:
                     listaFechasVuelos.append(item.fecha)
         return listaFechasVuelos
 
-    def verificarDiasPiloto(self, piloto):
-        for item in self.FechasDeVuelosHechosPorPiloto(piloto):
+    def verificarDiasTripulante(self, tripulante):
+        for item in self.FechasDeVuelosHechosPorTripulante(tripulante):
             fecha = 0
-            for meti in self.FechasDeVuelosHechosPorPiloto(piloto):
+            for meti in self.FechasDeVuelosHechosPorTripulante(tripulante):
                 if item == meti:
                     fecha += 1
                     if fecha == 2:

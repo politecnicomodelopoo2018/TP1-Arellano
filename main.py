@@ -27,41 +27,41 @@ for item in listaVuelos:
     pasajeroJoven = item.pasajeroJoven()
     for meti in item.listaPasajeros:
         if meti == pasajeroJoven:
-            print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac, "|*")
+            print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac.date(), "|*")
         else:
-            print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac)
+            print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac.date())
 
 
 print("\n", "VALIDANDO")
 print("VALIDOS por Cant")
 for item in listaVuelos:
     if item.validarCanTripulacion():
-        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
+        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha.date(), "|", item.hora)
 
 print("INVALIDOS por Cant")
 for item in listaVuelos:
     if not item.validarCanTripulacion():
-        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
+        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha.date(), "|", item.hora)
 
 print("\n", "VALIDOS por Aviones Permitidos")
 for item in listaVuelos:
     if item.validarTripulacion():
-        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
+        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha.date(), "|", item.hora)
 print("INVALIDOS por Aviones Permitidos")
 for item in listaVuelos:
     if not item.validarTripulacion():
-        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha, "|", item.hora)
+        print(item.avion.modelo, "|", item.origen, "|", item.destino, "|", item.fecha.date(), "|", item.hora)
 
 print("\n", "VALIDOS por Un Dia - Un Vuelo")
 for item in listaPersonas:
-    if type(item) is Piloto:
-        if s.verificarDiasPiloto(item):
+    if type(item) is Piloto or type(item) is Servicio:
+        if s.verificarDiasTripulante(item):
             print(item.nombre, "|", item.apellido, "|", item.dni)
 
 print("INVALIDOS por Un Dia - Un Vuelo")
 for item in listaPersonas:
-    if type(item) is Piloto:
-        if not s.verificarDiasPiloto(item):
+    if type(item) is Piloto or type(item) is Servicio:
+        if not s.verificarDiasTripulante(item):
             print(item.nombre, "|", item.apellido, "|", item.dni)
 
 print("\n", "Pasajeros V/Ne")
