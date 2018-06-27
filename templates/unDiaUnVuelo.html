@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Un Dia un Vuelo</title>
+</head>
+<body>
+    VALIDOS
+    {% for persona in Sistema.listaPersonas %}
+    {% if Sistema.verificarDiasTripulante(persona)%}
+    <table width="40%" style="text-align:center;">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+        </tr>
+        <tr>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellido}}</td>
+            <td>{{persona.dni}}</td>
+        </tr>
+    </table>
+    {% endif %}
+    {% endfor %}
+    <br>
+    INVALIDOS
+    {% for persona in ListaPersonas %}
+    {% if not s.verificarDiasTripulante(persona)%}
+    <table width="40%" style="text-align:center;">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+        </tr>
+        <tr>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellido}}</td>
+            <td>{{persona.dni}}</td>
+        </tr>
+    </table>
+    {% endif %}
+    {% endfor %}
+</body>
+</html>

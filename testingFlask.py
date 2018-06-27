@@ -41,5 +41,9 @@ def InvalidosTripulacion():
 def NoAutorizados():
     return render_template("/noAutorizados.html", ListaVuelos=listaVuelos)
 
+@app.route('/unDiaUnVuelo')
+def UnDiaUnVuelo():
+    return render_template("/unDiaUnVuelo.html", Sistema=s)
+
 if __name__ == '__main__':  # para actualizar automaticamente la pagina sin tener que cerrarla
     app.run(debug=True)     # para correr la pagina se puede hacer en este caso "python3 PruebaFlask.py" en la terminal
