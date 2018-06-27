@@ -33,5 +33,9 @@ def Index():
 def TablaVuelos():
     return render_template("/tablaVuelos.html", ListaVuelos=listaVuelos)
 
+@app.route('/invalidosTripulacion')
+def InvalidosTripulacion():
+    return render_template("/invalidosTripulacion.html", ListaVuelos=listaVuelos)
+
 if __name__ == '__main__':  # para actualizar automaticamente la pagina sin tener que cerrarla
     app.run(debug=True)     # para correr la pagina se puede hacer en este caso "python3 PruebaFlask.py" en la terminal

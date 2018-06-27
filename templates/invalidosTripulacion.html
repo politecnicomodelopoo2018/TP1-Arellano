@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invalidos Por Tripulacion</title>
+</head>
+<body>
+    VUELOS VALIDOS
+    {% for vuelo in ListaVuelos%}
+    {% if vuelo.validarCanTripulacion() %}
+    <table>
+        <tr>
+            <th>Avion</th>
+            <th>Origen</th>
+            <th>Destino</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+        </tr>
+        <tr>
+            <td>{{vuelo.avion.modelo}}</td>
+            <td>{{vuelo.origen}}</td>
+            <td>{{vuelo.destino}}</td>
+            <td>{{vuelo.fecha.date()}}</td>
+            <td>{{vuelo.hora}}</td>
+        </tr>
+    </table>
+    {% endif %}
+    {% endfor %}
+    <br>
+    VUELOS INVALIDOS
+    {% for vuelo in ListaVuelos%}
+    {% if not vuelo.validarCanTripulacion() %}
+    <table>
+        <tr>
+            <th>Avion</th>
+            <th>Origen</th>
+            <th>Destino</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+        </tr>
+        <tr>
+            <td>{{vuelo.avion.modelo}}</td>
+            <td>{{vuelo.origen}}</td>
+            <td>{{vuelo.destino}}</td>
+            <td>{{vuelo.fecha.date()}}</td>
+            <td>{{vuelo.hora}}</td>
+        </tr>
+    </table>
+    {% endif %}
+    {% endfor %}
+
+
+</body>
+</html>

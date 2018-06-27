@@ -12,17 +12,27 @@
             <th>Apellido</th>
             <th>Fecha Nacimiento</th>
             <th>DNI</th>
+            <th>VIP</th>
+            <th>NecesidadEspecial</th>
         </tr>
         {% for pasajero in vuelo.listaPasajeros%}
         <tr>
             <td>{{pasajero.nombre}}</td>
             <td>{{pasajero.apellido}}</td>
+            {% if pasajero == vuelo.pasajeroJoven() %}
+            <td>{{pasajero.fechaNac.date()}}*</td>
+            {% else %}
             <td>{{pasajero.fechaNac.date()}}</td>
+            {% endif %}
             <td>{{pasajero.dni}}</td>
+            <td>{{pasajero.vip}}</td>
+            <td>{{pasajero.necesidadEspecial}}</td>
         </tr>
         {% endfor %}
     </table>
     <br>
     {% endfor %}
+    pasajero joven *
+
 </body>
 </html>
