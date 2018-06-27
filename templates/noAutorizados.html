@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Invalidos Por Tripulacion</title>
+    <title>No Autorizados</title>
 </head>
 <body>
     VUELOS VALIDOS
     {% for vuelo in ListaVuelos%}
-    {% if vuelo.validarCanTripulacion() %}
+    {% if vuelo.validarTripulacion() %}
     <table width="40%" style="text-align:center;">
         <tr>
             <th>Avion</th>
@@ -48,7 +48,5 @@
     </table>
     {% endif %}
     {% endfor %}
-
-
 </body>
 </html>
