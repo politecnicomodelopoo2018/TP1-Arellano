@@ -31,7 +31,6 @@ for item in listaVuelos:
         else:
             print(meti.nombre, "|", meti.apellido, "|", meti.fechaNac.date())
 
-
 print("\n", "VALIDANDO")
 print("VALIDOS por Cant")
 for item in listaVuelos:

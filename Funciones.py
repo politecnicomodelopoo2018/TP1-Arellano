@@ -56,6 +56,18 @@ def printDatosPersona(persona, Pas = False, Pil = False, Ser = False):
         for item in persona.listaAviones:
             print("Avion: ", item.modelo)
 
+def getPersonaPorClase(listaPersonas, Pas = False, Pil = False, Ser = False):
+    lista = []
+    for persona in listaPersonas:
+        if type(persona) is Pasajero and Pas:
+            lista.append(persona)
+        elif type(persona) is Piloto and Pil:
+            lista.append(persona)
+        elif type(persona) is Servicio and Ser:
+            lista.append(persona)
+    return lista
+
+
 def printDatosVuelo(vuelo):
     print(vuelo.avion.modelo, "|", vuelo.origen, "|", vuelo.destino, "|", vuelo.fecha, "|", vuelo.hora)
     for item in vuelo.listaPasajeros:
