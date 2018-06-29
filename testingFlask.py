@@ -48,7 +48,7 @@ def NoAutorizados():
 
 @app.route('/unDiaUnVuelo')
 def UnDiaUnVuelo():
-    return render_template("/unDiaUnVuelo.html", Sistema=s)
+    return render_template("/unDiaUnVuelo.html", Sistema=s, Lista=getPersonaPorClase(listaPersonas, Pil=True, Ser=True))
 
 @app.route('/idiomasPorVuelo')
 def IdiomasPorVuelo():
