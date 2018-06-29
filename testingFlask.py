@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import redirect
 from flask import request
 from Persona import *
 from Sistema import *
@@ -27,7 +28,11 @@ app = Flask(__name__, static_url_path='/static')
 
 @app.route('/')
 def Index():
-    return render_template("/index.html")
+    return redirect("/paginaPrincipal.html")
+
+@app.route('/paginaPrincipal.html')
+def PaginaPrincipal():
+    return render_template("/paginaPrincipal.html")
 
 @app.route('/tablaVuelos')
 def TablaVuelos():

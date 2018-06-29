@@ -9,7 +9,7 @@
     {% for vuelo in ListaVuelos%}
     {% if vuelo.validarTripulacion()%}
 
-    <table width="40%" style="text-align:center;">
+    <table width="40%" style="text-align:center" border = "1;">
         <tr>
             <th>Avion</th>
             <th>Origen</th>
@@ -25,6 +25,7 @@
             <td>{{vuelo.hora}}</td>
         </tr>
     </table>
+    <br>
     {% endif %}
     {% endfor %}
     <br>
@@ -32,7 +33,7 @@
     VUELOS INVALIDOS
     {% for vuelo in ListaVuelos%}
     {% if vuelo.validarCanTripulacion()%}
-    <table width="40%" style="text-align:center;">
+    <table width="40%" style="text-align:center" border = "1;">
         <tr>
             <th>Avion</th>
             <th>Origen</th>
@@ -48,6 +49,7 @@
             <td>{{vuelo.hora}}</td>
         </tr>
     </table>
+    <br>
     {% endif %}
     {% endfor %}
 </body>

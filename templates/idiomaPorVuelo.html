@@ -6,16 +6,21 @@
 </head>
 <body>
     {% for vuelos in ListaVuelos%}
-     <table width="40%" style="text-align:center;">
-         <tr>
-             <th>{{vuelos.avion.modelo}} {{vuelos.origen}} a {{vuelos.destino}}</th>
-         </tr>
-         <tr>
-             {% for item in vuelos.idiomas()%}
-             <td>{{item}}</td>
-             {% endfor %}
-         </tr>
-     </table>
+        <tr>
+            <table width="40%" style="text-align:center" border = "1;">
+                 <tr>
+                     <th>{{vuelos.avion.modelo}} {{vuelos.origen}} a {{vuelos.destino}}</th>
+                 </tr>
+                {% for item in vuelos.idiomas()%}
+                 <tr>
+
+                     <td>{{item}}</td>
+
+                 </tr>
+                {% endfor %}
+            </table>
+        </tr>
+        <br>
      {% endfor%}
 </body>
 </html>
