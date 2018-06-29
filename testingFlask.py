@@ -45,5 +45,9 @@ def NoAutorizados():
 def UnDiaUnVuelo():
     return render_template("/unDiaUnVuelo.html", Sistema=s)
 
+@app.route('/idiomasPorVuelo')
+def IdiomasPorVuelo():
+    return render_template("/idiomaPorVuelo.html", ListaVuelos=listaVuelos)
+
 if __name__ == '__main__':  # para actualizar automaticamente la pagina sin tener que cerrarla
     app.run(debug=True)     # para correr la pagina se puede hacer en este caso "python3 PruebaFlask.py" en la terminal

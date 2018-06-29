@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idioma Por Vuelo</title>
+</head>
+<body>
+    {% for vuelos in ListaVuelos%}
+     <table width="40%" style="text-align:center;">
+         <tr>
+             <th>{{vuelos.avion.modelo}} {{vuelos.origen}} a {{vuelos.destino}}</th>
+         </tr>
+         <tr>
+             {% for item in vuelos.idiomas()%}
+             <th>{{item}}</th>
+             {% endfor %}
+         </tr>
+     </table>
+     {% endfor%}
+</body>
+</html>
