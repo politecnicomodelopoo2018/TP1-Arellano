@@ -5,6 +5,8 @@
     <title>Tabla Pasajeros</title>
 </head>
 <body>
+    <a href="http://127.0.0.1:5000/" ><button>Volver</button></a>
+    <br>
     {% for vuelo in ListaVuelos %}
     Vuelo {{vuelo.avion.modelo}} desde {{vuelo.origen}} hasta {{vuelo.destino}}
     <table width="50%" style="text-align:center" border = "1;">
@@ -34,6 +36,7 @@
     <br>
     {% endfor %}
     pasajero joven *
+    <a href="http://127.0.0.1:5000/" ><button>Volver</button></a>
 
 </body>
 </html>

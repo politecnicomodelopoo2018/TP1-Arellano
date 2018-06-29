@@ -5,6 +5,8 @@
     <title>Invalidos Por Tripulacion</title>
 </head>
 <body>
+    <a href="http://127.0.0.1:5000/" ><button>Volver</button></a>
+    <br>
     VUELOS VALIDOS
     {% for vuelo in ListaVuelos%}
     {% if vuelo.validarCanTripulacion() %}
@@ -51,7 +53,8 @@
     <br>
     {% endif %}
     {% endfor %}
-
+    <br>
+    <a href="http://127.0.0.1:5000/" ><button>Volver</button></a>
 
 </body>
 </html>

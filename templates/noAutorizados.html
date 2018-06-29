@@ -5,6 +5,8 @@
     <title>No Autorizados</title>
 </head>
 <body>
+    <a href="http://127.0.0.1:5000/" ><button>Volver</button></a>
+    <br>
     VUELOS VALIDOS
     {% for vuelo in ListaVuelos%}
     {% if vuelo.validarTripulacion()%}
@@ -52,5 +54,7 @@
     <br>
     {% endif %}
     {% endfor %}
+    <br>
+    <a href="http://127.0.0.1:5000/" ><button>Volver</button></a>
 </body>
 </html>

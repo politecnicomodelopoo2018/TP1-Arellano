@@ -5,6 +5,8 @@
     <title>Un Dia un Vuelo</title>
 </head>
 <body>
+    <a href="http://127.0.0.1:5000/" ><button>Volver</button></a>
+    <br>
     {% for vuelo in Sistema.listaVuelos %}
     Vuelo {{vuelo.avion.modelo}} desde {{vuelo.origen}} hasta {{vuelo.destino}}
     <table width="40%" style="text-align:center" border = "1;">
@@ -28,5 +30,7 @@
         {% endfor %}
     </table>
     {% endfor %}
+    <br>
+    <a href="http://127.0.0.1:5000/" ><button>Volver</button></a>
 </body>
 </html>
