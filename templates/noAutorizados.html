@@ -7,7 +7,8 @@
 <body>
     VUELOS VALIDOS
     {% for vuelo in ListaVuelos%}
-    {% if vuelo.validarTripulacion() %}
+    {% if vuelo.validarTripulacion()%}
+
     <table width="40%" style="text-align:center;">
         <tr>
             <th>Avion</th>
@@ -27,9 +28,10 @@
     {% endif %}
     {% endfor %}
     <br>
+
     VUELOS INVALIDOS
     {% for vuelo in ListaVuelos%}
-    {% if not vuelo.validarCanTripulacion() %}
+    {% if vuelo.validarCanTripulacion()%}
     <table width="40%" style="text-align:center;">
         <tr>
             <th>Avion</th>

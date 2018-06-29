@@ -27,6 +27,7 @@
     {% endif %}
     {% endfor %}
     <br>
+
     VUELOS INVALIDOS
     {% for vuelo in ListaVuelos%}
     {% if not vuelo.validarCanTripulacion() %}
