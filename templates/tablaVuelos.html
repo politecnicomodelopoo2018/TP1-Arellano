@@ -6,6 +6,7 @@
 </head>
 <body>
     {% for vuelo in ListaVuelos %}
+    Vuelo {{vuelo.avion.modelo}} desde {{vuelo.origen}} hasta {{vuelo.destino}}
     <table width="40%" style="text-align:center;">
         <tr>
             <th>Nombre</th>

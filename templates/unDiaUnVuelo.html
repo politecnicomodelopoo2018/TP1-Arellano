@@ -5,43 +5,31 @@
     <title>Un Dia un Vuelo</title>
 </head>
 <body>
-    VALIDOS
-    {% for persona in Sistema.listaPersonas %}
-    {% if Sistema.verificarDiasTripulante(persona)%}
+    {% for vuelo in Sistema.listaVuelos %}
+    Vuelo {{vuelo.avion.modelo}} desde {{vuelo.origen}} hasta {{vuelo.destino}}
     <table width="40%" style="text-align:center;">
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>DNI</th>
+            <th>Valido</th>
         </tr>
+        {% for persona in vuelo.listaTripulacion%}
         <tr>
-            <td>{{Sistema.verificarDiasTripulante(persona)}}</td>
-            <td>{{persona.nombre}}</td>
-            <td>{{persona.apellido}}</td>
-            <td>{{persona.dni}}</td>
-        </tr>
-    </table>
-    {% endif %}
-    {% endfor %}
-    <br>
-    INVALIDOS
-    {% for persona in ListaPersonas %}
-    {% if not Sistema.verificarDiasTripulante(persona)%}
 
-    <table width="40%" style="text-align:center;">
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>DNI</th>
-        </tr>
-        <tr>
-            <td>{{Sistema.verificarDiasTripulante(persona)}}</td>
             <td>{{persona.nombre}}</td>
             <td>{{persona.apellido}}</td>
             <td>{{persona.dni}}</td>
+            {% if Sistema.verificarDiasTripulante(persona)%}
+            <td>Si</td>
+            {% else %}
+            <td>No</td>
+            {% endif %}
         </tr>
+        {% endfor %}
     </table>
-    {% endif %}
+
     {% endfor %}
+
 </body>
 </html>
